@@ -4,33 +4,40 @@
 #importar bibliotecas
 import pyautogui as auto
 
-auto.PAUSE = 0.5
+import time
 
-#maximizar a tela, a janela do chrome
-auto.hotkey('ctrl', 'j')
+# tempo que cada comando demora para executar
+auto.PAUSE = 1
 
-#abrir o git init
-# auto.write('git init')
-#auto.press('enter') #aperta enter
+#pede o link do deiretório
+diretorio = input('Informe o link do diretório: ')
 
-# auto.write('git status')
-#auto.press('enter') #aperta enter
+# instruções
+auto.press('win') #clica na tecla win
+auto.write('vscode') #escreve vscode
+auto.press('enter') #aperta enter
 
-# auto.write(''git add .)
-#auto.press('enter') #aperta enter
+# espera 10 segundos
+time.sleep(10)
 
-#echo .venv > .gitignore
-#auto.press('enter') #aperta enter
 
-#git commit -m "Automatizar comando github"
-#auto.press('enter') #aperta enter
+auto.hotkey('ctrl', 'shift', "'") #atalho
+time.sleep(10) #espera 10 segundos
+auto.write('git init') #iniciar repositorio git
+auto.press('enter') #aperta enter
+auto.write('git add .')  #salvar informacoes do repositorio
+auto.press('enter') #aperta enter
+auto.write('git commit -m "Automatizar repositório git."')
+auto.press('enter') #aperta enter
 
-#git branch -M main
-#auto.press('enter') #aperta enter
+# espera 5 segundos
+time.sleep(5) 
 
-#git remote add origin https://github.com/JenniferMelissa/repositorio_github.git
-#auto.press('enter') #aperta enter
+auto.write('git branch -M main') #mudar nome da branch master para mais
+auto.press('enter') #aperta enter
 
-#git push -u origin main
-#auto.press('enter') #aperta enter
+auto.write(f'git remote add origin {diretorio}') #adiciona o link do repositorio 
+auto.press('enter') #aperta enter 
 
+auto.write('git push -u origin main') #sobe para o repositorio remoto
+auto.press('enter') #aperta enter 
